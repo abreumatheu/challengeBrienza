@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa de Aniversário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .question-container {
+            display: none;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #trickButton {
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+        #realButton {
+            display: none;
+            background-color: #007bff;
+        }
+        .reveal-message {
+            display: none;
+            font-size: 24px;
+            color: green;
+            margin-top: 20px;
+        }
+        .alert {
+            background-color: #ffcccc;
+            color: red;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Primeira Página com Brincadeira -->
+    <div class="container" id="alertContainer">
+        <h1>Aviso!</h1>
+        <p class="alert">Se você errar alguma pergunta, perderá a oportunidade para sempre! </p>
+        <button id="trickButton" onclick="moveButton()">Começar</button>
+        <button id="realButton" onclick="nextQuestion(0)">É brincadeira amor, clica aqui</button>
+    </div>
+
+    <!-- Pergunta 1 -->
+    <div class="container question-container" id="question1">
+        <h2>Pergunta 1</h2>
+        <p>Qual roupa você usou no nosso primeiro encontro?</p>
+        <input type="text" id="answer1">
+        <button onclick="nextQuestion(1)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div class="container question-container" id="question2">
+        <h2>Pergunta 2</h2>
+        <p>Qual é a cor da minha Alexa?</p>
+        <input type="text" id="answer2">
+        <button onclick="nextQuestion(2)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div class="container question-container" id="question3">
+        <h2>Pergunta 3</h2>
+        <p>Qual o tamanho do calçado da sua vó? Conce</p>
+        <input type="text" id="answer3">
+        <button onclick="nextQuestion(3)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div class="container question-container" id="question4">
+        <h2>Pergunta 4</h2>
+        <p>Onde seus pais deram o primeiro beijo?</p>
+        <input type="text" id="answer4">
+        <button onclick="nextQuestion(4)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 5 -->
+    <div class="container question-container" id="question5">
+        <h2>Pergunta 5</h2>
+        <p>Que ano era o primeiro carro do seu pai?</p>
+        <input type="text" id="answer5">
+        <button onclick="nextQuestion(5)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 6 -->
+    <div class="container question-container" id="question6">
+        <h2>Pergunta 6</h2>
+        <p>Qual o nome do primeiro cachorro da sua mãe?</p>
+        <input type="text" id="answer6">
+        <button onclick="nextQuestion(6)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 7 -->
+    <div class="container question-container" id="question7">
+        <h2>Pergunta 7</h2>
+        <p>Quais as coordenadas geológicas do escritório da Contabil Rocha?</p>
+        <input type="text" id="answer7">
+        <button onclick="nextQuestion(7)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 8 -->
+    <div class="container question-container" id="question8">
+        <h2>Pergunta 8</h2>
+        <p>Se eu fosse um animal, qual eu seria?</p>
+        <input type="text" id="answer8">
+        <button onclick="nextQuestion(8)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 9 -->
+    <div class="container question-container" id="question9">
+        <h2>Pergunta 9</h2>
+        <p>Qual a primeira coisa que você comeu aqui em casa?</p>
+        <input type="text" id="answer9">
+        <button onclick="nextQuestion(9)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 10 -->
+    <div class="container question-container" id="question10">
+        <h2>Pergunta 10</h2>
+        <p>O que a sua tia Regina almoçou hoje?</p>
+        <input type="text" id="answer10">
+        <button onclick="nextQuestion(10)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 11 -->
+    <div class="container question-container" id="question11">
+        <h2>Pergunta 11</h2>
+        <p>Qual a cor do meu Apple Watch?</p>
+        <input type="text" id="answer11">
+        <button onclick="nextQuestion(11)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 12 -->
+    <div class="container question-container" id="question12">
+        <h2>Pergunta 12</h2>
+        <p>Qual a primeira frase que o Uísque falou?</p>
+        <input type="text" id="answer12">
+        <button onclick="nextQuestion(12)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 13 -->
+    <div class="container question-container" id="question13">
+        <h2>Pergunta 13</h2>
+        <p>Qual a primeira palavra que você disse?</p>
+        <input type="text" id="answer13">
+        <button onclick="nextQuestion(13)">Próxima</button>
+    </div>
+
+    <!-- Pergunta 14 -->
+    <div class="container question-container" id="question14">
+        <h2>Pergunta 14</h2>
+        <p>Qual esporte eu joguei como federado?</p>
+        <input type="text" id="answer14">
+        <button onclick="revealAnswer()">Finalizar</button>
+    </div>
+
+    <!-- Mensagem Final -->
+    <div class="container reveal-message" id="revealMessage">
+        <h2>Surpresa!</h2>
+        <a href="vamos.png" target="_blank">Descubra para onde vamos aqui</a>
+    </div>
+
+    <script>
+        let moveCount = 0;
+
+        function moveButton() {
+            if (moveCount < 3) {
+                const trickButton = document.getElementById('trickButton');
+                const xPos = Math.random() * 300 - 150;
+                const yPos = Math.random() * 100 - 50;
+                trickButton.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                moveCount++;
+            } else {
+                document.getElementById('trickButton').style.display = 'none';
+                document.getElementById('realButton').style.display = 'block';
+            }
+        }
+
+        function nextQuestion(questionNumber) {
+            if (questionNumber === 0) {
+                document.getElementById('alertContainer').style.display = 'none';
+            } else {
+                document.getElementById('question' + questionNumber).style.display = 'none';
+            }
+            document.getElementById('question' + (questionNumber + 1)).style.display = 'block';
+        }
+
+        function revealAnswer() {
+            document.getElementById('question14').style.display = 'none';
+            document.getElementById('revealMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
